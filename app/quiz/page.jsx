@@ -1,11 +1,14 @@
 "use client";
 const Page = () => {
-  const test2 = () => {
-    alert("Next.js 할만함!");
+  // 버튼 누르면 숫자 올라가도록
+  const num = document.querySelector("button");
+
+  const upNumber = () => {
+    return (num.innerHTML += 1);
   };
   return (
     <>
-      <button onClick={test2}>nextjs</button>
+      <button onClick={upNumber}>0</button>
     </>
   );
 };
