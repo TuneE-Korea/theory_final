@@ -1,15 +1,26 @@
 "use client";
+import { useState } from "react";
 const Page = () => {
-  // 버튼 누르면 숫자 올라가도록
-  const num = document.querySelector("button");
+  // quiz 1. - 0 + 구현하기
+  // quiz 2. 이모지 누르면 😎<->😴
+  const [num, setNum] = useState(0);
+  const [icon, setIcon] = useState("😎");
 
-  const upNumber = () => {
-    return (num.innerHTML += 1);
-  };
   return (
-    <>
-      <button onClick={upNumber}>0</button>
-    </>
+    <div className="flex flex-col gap-3">
+      <div className="flex gap-2 justify-center items-center">
+        <button onClick={() => setNum((x) => x - 1)}>-</button>
+        <span>{num}</span>
+        <button onClick={() => setNum((x) => x + 1)}>+</button>
+      </div>
+      <div className="flex gap-2 justify-center items-center">
+        <button
+          onClick={() => setIcon((x) => (x == "😎" ? (x = "😴") : (x = "😎")))}
+        >
+          {icon}
+        </button>
+      </div>
+    </div>
   );
 };
 
